@@ -1,0 +1,1 @@
+pkg-dependency-manager>=1.0.3

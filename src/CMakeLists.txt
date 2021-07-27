@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.10)
+set(PCHS_ENABLED ${CMAKE_VERSION} VERSION_GREATER_EQUAL 3.16)
+file(GLOB_RECURSE SERVER_SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
+file(GLOB_RECURSE SERVER_HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/*.h")
+set(MANIFEST ${SERVER_SOURCE} ${SERVER_HEADERS})
+add_executable(server ${MANIFEST})
+set_property(TARGET server PROPERTY CXX_STANDARD 17)
+target_link_libraries(server acme_lw curl crypto)

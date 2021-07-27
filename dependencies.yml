@@ -1,0 +1,11 @@
+Linux:
+  Arch:
+    packages:
+    - libcurl-gnutls
+    - openssl
+    - cmake
+  Ubuntu:
+    packages:
+    - libcurl4-gnutls-dev
+    - libssl-dev
+    - cmake
