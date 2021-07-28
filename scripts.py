@@ -17,7 +17,7 @@ def sync_deps(arguments):
         if len(entries) <= 1:
             # we need to install acme-lw
             print("acme-lw not found - building and installing...")
-            temp_dir = TemporaryDirectory()
+            temp_dir = TemporaryDirectory().name
             build_dir = join(temp_dir, "build")
             # clone, build, and install
             call(["git", "clone", "git@github.com:jmccl/acme-lw", temp_dir])
