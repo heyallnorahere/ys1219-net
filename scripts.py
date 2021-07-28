@@ -21,7 +21,7 @@ def sync_deps(arguments):
             temp_dir_path = temp_dir.name
             build_dir = join(temp_dir_path, "build")
             # clone, build, and install
-            call(["git", "clone", "git@github.com:jmccl/acme-lw", temp_dir_path])
+            call(["git", "clone", "https://github.com/jmccl/acme-lw", temp_dir_path])
             call([arguments.cmake, temp_dir_path, "-B", build_dir, "-G", "Unix Makefiles", "-DCMAKE_BUILD_TYPE=Release"])
             call(["make", "-C", build_dir, "-j", "8"])
             call(["sudo", "make", "install", "-C", build_dir, "-j", "8"])
