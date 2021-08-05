@@ -9,4 +9,4 @@ Linux:
     - libcurl4-gnutls-dev
     - libssl-dev
     - cmake
-    - libcpprest-dev
+    - libevhtp-dev
