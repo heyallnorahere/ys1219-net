@@ -24,11 +24,3 @@ jobs:
         shell: bash
         run: |
           make -C build -j 8
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: create deployment
-        uses: avakar/create-deployment@v1
-        with:
-          auto_merge: false
