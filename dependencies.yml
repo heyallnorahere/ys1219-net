@@ -10,3 +10,4 @@ Linux:
     - libssl-dev
     - cmake
     - libevhtp-dev
+    - libjsoncpp-dev
