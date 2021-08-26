@@ -1,0 +1,6 @@
+[submodule "vendor/drogon"]
+	path = vendor/drogon
+	url = https://github.com/drogonframework/drogon.git
+[submodule "vendor/spdlog"]
+	path = vendor/spdlog
+	url = https://github.com/gabime/spdlog.git

@@ -1,0 +1,13 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "python scripts.py configure --debug && make -C build -j 8",
+            "problemMatcher": [
+                "$gcc"
+            ]
+        }
+    ]
+}

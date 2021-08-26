@@ -3,10 +3,11 @@ from subprocess import Popen, PIPE, call as subprocess_call
 from tempfile import TemporaryDirectory
 from os.path import join
 from argparse import ArgumentParser
+import yaml
 def call(args: list[str]):
     return_code = subprocess_call(args)
     if return_code != 0:
-        return 1
+        exit(1)
 def sync_deps(arguments):
     pkg_cfg = PackageConfig("dependencies.yml")
     pkg_cfg.install()
@@ -26,6 +27,18 @@ def sync_deps(arguments):
             call(["make", "-C", build_dir, "-j", "8"])
             call(["sudo", "make", "install", "-C", build_dir, "-j", "8"])
             temp_dir.cleanup()
+def read_options():
+    with open("options.yml", "r") as stream:
+        try:
+            data = yaml.load(stream, Loader=yaml.Loader)
+        except yaml.YAMLError as exc:
+            print(exc)
+        output = ""
+        for option in data:
+            if len(output) > 0:
+                output += " "
+            output += f"-D{option['name']}={option['value']}"
+        return output
 def configure(arguments):
     if arguments.debug:
         build_type = "Debug"
@@ -40,6 +53,8 @@ def configure(arguments):
         "Unix Makefiles",
         "-DCMAKE_BUILD_TYPE=" + build_type
     ]
+    for argument in read_options().split(" "):
+        arguments_list.append(argument)
     call(arguments_list)
 SCRIPTS = {
     "sync-deps": sync_deps,

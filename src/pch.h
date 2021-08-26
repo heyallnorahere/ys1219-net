@@ -3,5 +3,9 @@
 #include <iostream>
 #include <fstream>
 #include <filesystem>
+#include <stdexcept>
+#include <cstdint>
+#include <stddef.h>
 #include <drogon/drogon.h>
 #include <acme-lw.h>
+#include <spdlog/spdlog.h>

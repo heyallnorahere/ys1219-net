@@ -1,0 +1,4 @@
+- name: BUILD_CTL
+  value: "OFF"
+- name: BUILD_EXAMPLES
+  value: "OFF"

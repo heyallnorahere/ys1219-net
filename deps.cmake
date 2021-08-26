@@ -1,8 +1,0 @@
-cmake_minimum_required(VERSION 3.10)
-include(FetchContent)
-FetchContent_Declare(drogon GIT_REPOSITORY https://github.com/drogonframework/drogon)
-FetchContent_GetProperties(drogon)
-if(NOT drogon_POPULATED)
-    FetchContent_Populate(drogon)
-    add_subdirectory(${drogon_SOURCE_DIR} ${drogon_BINARY_DIR})
-endif()
